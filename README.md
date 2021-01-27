@@ -3,6 +3,8 @@
 - Acesse o [home](./public/pages/home/index.html) para acessar a home page
 - Acesse o [room](./public/pages/room/index.html) uma room específica
 
+- Acesse o [servidor Socket](./server/index.js)
+
 ## Home Page
 
 ![home page](./prints/home.png)
