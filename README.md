@@ -7,15 +7,17 @@ Projeto base da JS Expert Week 2.0
 
 - Acesse o [servidor Socket](./server/index.js)
 
-## Home Page
+## Screenshots
+
+### Home Page
 
 ![home page](./prints/home.png)
 
-## Room
+### Room
 
 ![room](./prints/room.png)
 
-### Créditos
+## Créditos
 
 - Layout da home foi baseada no codepen do [Nelson Adonis Hernandez
 ](https://codepen.io/nelsonher019/pen/eYZBqOm)
