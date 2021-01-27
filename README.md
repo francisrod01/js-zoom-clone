@@ -2,6 +2,10 @@
 
 Projeto base da JS Expert Week 2.0
 
+Teacher: [Erick Wendel](https://github.com/ErickWendel)
+<br>
+Student: [Francis Rodrigues](https://github.com/francisrod01)
+
 - Acesse o [home](./public/pages/home/index.html) para acessar a home page
 - Acesse o [room](./public/pages/room/index.html) uma room específica
 
