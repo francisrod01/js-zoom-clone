@@ -17,14 +17,14 @@ const io = socketIo(server, {
 });
 
 io.on('connection', socket => {
-  console.log('connection:', socket.id);
+  console.log('Socket connection:', socket.id);
   socket.on('join-room', (roomId, userId) => {
     // Add users in the same room
     socket.join(roomId);
     socket.to(roomId).broadcast.emit('user-connected', userId);
 
     socket.on('disconnect', () => {
-      console.log('disconnected!', roomId, userId);
+      console.log('Socket disconnected!', roomId, userId);
       socket.to(roomId).broadcast.emit('user-disconnected', userId);
     });
   });
@@ -32,7 +32,7 @@ io.on('connection', socket => {
 
 const startServer = () => {
   const { address, port } = server.address();
-  console.info(`App running at ${address}:${port}`);
+  console.info(`Socket app running at ${address}:${port}`);
 };
 
 server.listen(process.env.PORT || 3000, startServer);
