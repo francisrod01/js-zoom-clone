@@ -83,6 +83,9 @@ class Business {
       // Set the participans on the screen.
       this.view.setParticipants(this.peers.size);
 
+      // Stop recording the user itself.
+      this.stopRecording(userId);
+
       // Remove the user HTML from DOM.
       this.view.removeVideoElement(userId);
     };
