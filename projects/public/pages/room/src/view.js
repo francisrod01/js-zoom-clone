@@ -23,9 +23,9 @@ class View {
     return video;
   }
 
-  renderVideo({ userId, stream = null, url = null, isCurrentId = false, muted = true }) {
+  renderVideo({ userId, stream = null, url = null, isCurrentId = false }) {
     const video = this.createVideoElement({
-      muted,
+      muted: isCurrentId,
       src: url,
       srcObject: stream
     });
