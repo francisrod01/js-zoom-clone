@@ -46,7 +46,7 @@ class Recorder {
 
     this.mediaRecorder.ondataavailable = (event) => {
       // Check if it has data to save.
-      if (!event.data || !event.size)
+      if (!event.data || !event.data.size)
         return;
 
       this.recordedBlobs.push(event.data);
