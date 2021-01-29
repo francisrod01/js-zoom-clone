@@ -143,6 +143,25 @@ class Business {
         value.startRecording();
         continue;
       }
+
+      this.stopRecording(key);
+    }
+  }
+
+  // In case a peer enters and exits a call, we need to stop all recordings assotiated to it.
+  async stopRecording(userId) {
+    const usersRecordings = this.usersRecordings;
+    for (const [key, value] of usersRecordings) {
+      const isContextUser = key.includes(userId);
+      if (!isContextUser)
+        continue;
+
+      const rec = value;
+      const isRecordingActive = rec.recordingActive;
+      if (!isRecordingActive)
+        continue;
+
+      await rec.stopRecording();
     }
   }
 }
