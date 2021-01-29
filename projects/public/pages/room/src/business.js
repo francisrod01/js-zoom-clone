@@ -20,6 +20,8 @@ class Business {
   }
 
   async _init() {
+    this.view.configureRecordButton(this.onRecordPressed.bind(this));
+
     this.currentStream = await this.media.getCamera();
 
     this.socket = this.socketBuilder
@@ -119,5 +121,10 @@ class Business {
     return (call) => {
       console.log('Call closed!', call.peer);
     };
+  }
+
+  onRecordPressed(recordingEnabled) {
+    this.recordingEnabled = recordingEnabled;
+    console.log('Record button was pressed!!', recordingEnabled);
   }
 }
