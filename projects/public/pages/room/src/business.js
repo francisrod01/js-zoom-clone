@@ -12,6 +12,7 @@ class Business {
     this.currentPeer = {};
 
     this.peers = new Map();
+    this.usersRecordings = new Map();
   }
 
   static initialize(deps) {
@@ -42,6 +43,15 @@ class Business {
   }
 
   addVideoStream(userId, stream = this.currentStream) {
+    // Get the recorder instance.
+    const recorderInstance = new Recorder(userId, stream);
+    this.usersRecordings.set(recorderInstance.filename, recorderInstance);
+
+    // Start recording if the recorder button is enabled
+    if (this.recordingEnabled) {
+      recorderInstance.startRecording();
+    }
+
     const isCurrentId = false;
     this.view.renderVideo({
       userId,
@@ -126,5 +136,13 @@ class Business {
   onRecordPressed(recordingEnabled) {
     this.recordingEnabled = recordingEnabled;
     console.log('Record button was pressed!!', recordingEnabled);
+
+    // Recording all peers connected.
+    for (const [key, value] of this.usersRecordings) {
+      if (this.recordingEnabled) {
+        value.startRecording();
+        continue;
+      }
+    }
   }
 }
