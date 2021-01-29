@@ -165,6 +165,17 @@ class Business {
         continue;
 
       await rec.stopRecording();
+      this.playRecordings(key);
     }
+  }
+
+  playRecordings(userId) {
+    const user = this.usersRecordings.get(userId);
+    const videosURLs = user.getAllVideoURLs();
+
+    // Tells view to render its videos.
+    videosURLs.map(url => {
+      this.view.renderVideo({ url, userId });
+    });
   }
 }
