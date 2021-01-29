@@ -36,7 +36,7 @@ class Business {
       .setOnCallClose(this.onPeerCallClose())
       .build();
 
-    this.addVideoStream('test01');
+    this.addVideoStream(this.currentPeer.id);
   }
 
   addVideoStream(userId, stream = this.currentStream) {
