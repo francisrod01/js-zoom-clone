@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A peer-server for real-time custom events",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "PORT=9000 npm start",
     "start": "npx peerjs --port $PORT --key peerjs --path /",
